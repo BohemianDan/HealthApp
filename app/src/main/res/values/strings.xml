@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">RoomWordsSample</string>
+    <string name="action_settings">Settings</string>
+    <string name="hint_emotion">Custom Emotion…</string>
+    <string name="hint_summary">Quick Summary…</string>
+    <string name="hint_story">Full Story…</string>
+    <string name="button_save">Save</string>
+    <string name="empty_not_saved">Case not saved because it is empty.</string>
+    <string name="add_word">Add word</string>
+    <string name="button_pattern">Add to Pattern</string>
+    <string name="default_text">Loading...</string>
+</resources>

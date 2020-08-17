@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="emotion_array">
+        <item>Custom</item>
+
+        <item>Happy</item>
+        <item>Joyful</item>
+        <item>Proud</item>
+        <item>Validated</item>
+
+        <item>Angry</item>
+        <item>Anxious</item>
+        <item>Helpless</item>
+        <item>Small</item>
+        <item>Upset</item>
+
+        <item>Jealous</item>
+
+
+    </array>
+</resources>
