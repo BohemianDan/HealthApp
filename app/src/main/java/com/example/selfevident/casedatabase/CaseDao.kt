@@ -1,4 +1,4 @@
-package com.example.roomwordsample
+package com.example.selfevident.casedatabase
 
 import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
@@ -17,7 +17,7 @@ import androidx.room.Query;
  */
 
 @Dao
-interface WordDao {
+interface CaseDao {
 
     // LiveData is a data holder class that can be observed within a given lifecycle.
     // Always holds/caches latest version of data. Notifies its active observers when the

@@ -1,4 +1,4 @@
-package com.example.roomwordsample
+package com.example.selfevident.casedatabase
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,10 +6,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
+import com.example.selfevident.R
 
-class WordListAdapter internal constructor(
+class CaseListAdapter internal constructor(
     context: Context, onClick: (id: Int) -> Unit
-) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
+) : RecyclerView.Adapter<CaseListAdapter.WordViewHolder>() {
 
     private val inflater: LayoutInflater = LayoutInflater.from(context)
     private var cases = emptyList<Case>() // Cached copy of words

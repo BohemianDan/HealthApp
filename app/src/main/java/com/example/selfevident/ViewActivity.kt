@@ -1,16 +1,15 @@
-package com.example.roomwordsample
+package com.example.selfevident
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewModelScope
+import com.example.selfevident.casedatabase.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 class ViewActivity : AppCompatActivity() {
 
-    private lateinit var wordViewModel: WordViewModel
+    private lateinit var caseViewModel: CaseViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,11 +28,18 @@ class ViewActivity : AppCompatActivity() {
             var result = wordViewModel.allWords
             var result2 = result.value
              */
-            wordViewModel = WordViewModel(application) //ViewModelProvider(this).get(WordViewModel::class.java)
+            caseViewModel =
+                CaseViewModel(application) //ViewModelProvider(this).get(WordViewModel::class.java)
             //wordViewModel.insert(Case(0, "Pissed", "why won't this work Right?"))
             GlobalScope.launch {
-                var all = wordViewModel.get(id)
-                var important = if (all.isNotEmpty()) all[0] else Case(0, "Error, None found", "Error, None found", "Error, None found", "Error, None found")
+                var all = caseViewModel.get(id)
+                var important = if (all.isNotEmpty()) all[0] else Case(
+                    0,
+                    "Error, None found",
+                    "Error, None found",
+                    "Error, None found",
+                    "Error, None found"
+                )
                 title.text = "${important.emotion} on ${important.datetime}" // result[0].summary
                 summary.text = important.summary
                 story.text = important.story

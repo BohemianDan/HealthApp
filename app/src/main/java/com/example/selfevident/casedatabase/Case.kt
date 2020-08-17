@@ -1,9 +1,8 @@
-package com.example.roomwordsample
+package com.example.selfevident.casedatabase
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import java.util.Calendar
 
 /**
  * A basic class representing an entity that is a row in a one-column database table.

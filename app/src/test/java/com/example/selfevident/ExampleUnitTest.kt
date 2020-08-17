@@ -1,4 +1,4 @@
-package com.example.roomwordsample
+package com.example.selfevident
 
 import org.junit.Test
 

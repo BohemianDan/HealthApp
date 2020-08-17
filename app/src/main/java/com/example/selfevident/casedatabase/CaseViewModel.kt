@@ -1,7 +1,6 @@
-package com.example.roomwordsample
+package com.example.selfevident.casedatabase
 
 import android.app.Application
-import android.os.Parcelable
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -13,9 +12,9 @@ import kotlinx.coroutines.launch
  * an up-to-date list of all words.
  */
 
-class WordViewModel(application: Application) : AndroidViewModel(application) {
+class CaseViewModel(application: Application) : AndroidViewModel(application) {
 
-    val repository: WordRepository
+    private val repository: CaseRepository
     // Using LiveData and caching what getAlphabetizedWords returns has several benefits:
     // - We can put an observer on the data (instead of polling for changes) and only update the
     //   the UI when the data actually changes.
@@ -23,8 +22,8 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     val allWords: LiveData<List<Case>>
 
     init {
-        val wordsDao = WordRoomDatabase.getDatabase(application, viewModelScope).wordDao()
-        repository = WordRepository(wordsDao)
+        val wordsDao = CaseRoomDatabase.getDatabase(application, viewModelScope).wordDao()
+        repository = CaseRepository(wordsDao)
         allWords = repository.allWords
     }
 

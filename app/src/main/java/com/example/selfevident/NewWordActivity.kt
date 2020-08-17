@@ -1,4 +1,4 @@
-package com.example.roomwordsample
+package com.example.selfevident
 
 import android.app.Activity
 import android.content.Intent
