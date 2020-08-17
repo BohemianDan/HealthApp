@@ -14,13 +14,13 @@ class ViewActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_view)
-
+        title = "hello"
 
         //view specific journal entry
         val bundle: Bundle? = intent.extras
         if (bundle != null) {
             val id: Int = bundle.get("id") as Int
-            val title = findViewById<TextView>(R.id.titleView)
+            val feeling = findViewById<TextView>(R.id.feelingView)
             val summary = findViewById<TextView>(R.id.summaryView)
             val story = findViewById<TextView>(R.id.storyView)
             val pattern = findViewById<TextView>(R.id.patternView)
@@ -30,17 +30,18 @@ class ViewActivity : AppCompatActivity() {
              */
             caseViewModel =
                 CaseViewModel(application) //ViewModelProvider(this).get(WordViewModel::class.java)
-            //wordViewModel.insert(Case(0, "Pissed", "why won't this work Right?"))
             GlobalScope.launch {
                 var all = caseViewModel.get(id)
                 var important = if (all.isNotEmpty()) all[0] else Case(
                     0,
                     "Error, None found",
+                    0,
                     "Error, None found",
                     "Error, None found",
-                    "Error, None found"
+                    null
                 )
-                title.text = "${important.emotion} on ${important.datetime}" // result[0].summary
+                title = "${important.datetime}: Rating of ${important.rating}"
+                feeling.text = important.emotion // result[0].summary
                 summary.text = important.summary
                 story.text = important.story
 

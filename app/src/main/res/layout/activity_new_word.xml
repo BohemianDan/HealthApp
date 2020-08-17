@@ -9,6 +9,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/edit_emotion_spinner"
         android:entries="@array/emotion_array"
+        android:layout_margin="@dimen/big_padding"
         android:spinnerMode="dropdown" />
 
     <EditText

@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.example.selfevident.ViewActivity" />
         <activity android:name="com.example.selfevident.SearchActivity" />
-        <activity android:name="com.example.selfevident.NewWordActivity" />
+        <activity android:name="com.example.selfevident.NewCaseActivity" />
         <activity android:name="com.example.selfevident.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

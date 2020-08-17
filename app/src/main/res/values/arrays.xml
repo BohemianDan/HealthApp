@@ -1,21 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="emotion_array">
-        <item>Custom</item>
+        <item>Qualify How You Felt</item>
 
-        <item>Happy</item>
-        <item>Joyful</item>
-        <item>Proud</item>
-        <item>Validated</item>
-
-        <item>Angry</item>
-        <item>Anxious</item>
-        <item>Helpless</item>
-        <item>Small</item>
-        <item>Upset</item>
-
-        <item>Jealous</item>
-
+        <item>0: No Good Terrible Very Bad Day</item>
+        <item>1: Terrible</item>
+        <item>2: Very Bad</item>
+        <item>3: Bad</item>
+        <item>4: Uncomfortable</item>
+        <item>5: Meh</item>
+        <item>6: Ok</item>
+        <item>7: Happy</item>
+        <item>8: Pretty Good</item>
+        <item>9: Can\'t Stop Smiling</item>
+        <item>10: Ecstatic</item>
 
     </array>
 </resources>

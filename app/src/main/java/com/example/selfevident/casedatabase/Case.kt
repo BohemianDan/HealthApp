@@ -1,8 +1,8 @@
 package com.example.selfevident.casedatabase
 
-import androidx.room.ColumnInfo
-import androidx.room.Entity
-import androidx.room.PrimaryKey
+import androidx.room.*
+import com.example.selfevident.Converters
+import java.sql.Date
 
 /**
  * A basic class representing an entity that is a row in a one-column database table.
@@ -16,10 +16,12 @@ import androidx.room.PrimaryKey
  */
 
 @Entity(tableName = "case_table")
+@TypeConverters(Converters::class)
 data class Case(
     @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "emotion") val emotion: String,
+    @ColumnInfo(name = "rating") val rating: Int,
     @ColumnInfo(name = "summary") val summary: String,
     @ColumnInfo(name = "story") val story: String = "",
-    @ColumnInfo(name = "datetime") val datetime: String = "Unknown"
+    @ColumnInfo(name = "datetime") val datetime: Date? = null
 )

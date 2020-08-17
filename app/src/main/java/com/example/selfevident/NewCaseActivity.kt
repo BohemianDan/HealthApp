@@ -13,7 +13,7 @@ import android.widget.Spinner
  * Activity for entering a word.
  */
 
-class NewWordActivity : AppCompatActivity() {
+class NewCaseActivity : AppCompatActivity() {
 
     private lateinit var editEmotionSpinner: Spinner
     private lateinit var editEmotionView: EditText
@@ -35,22 +35,16 @@ class NewWordActivity : AppCompatActivity() {
         val button = findViewById<Button>(R.id.button_save)
         button.setOnClickListener {
             val replyIntent = Intent()
-            if (TextUtils.isEmpty(editEmotionView.text) &&
-                editEmotionSpinner.selectedItemPosition == 0
-                || TextUtils.isEmpty(editSummaryView.text)
-            ) {
+            if (editEmotionSpinner.selectedItemPosition == 0 || TextUtils.isEmpty(editSummaryView.text)) {
                 setResult(Activity.RESULT_CANCELED, replyIntent)
             } else {
                 var emotion = editEmotionView.text.toString()
-                var spinnerIndex = editEmotionSpinner.selectedItemPosition
-                if (spinnerIndex != 0) {
-                    emotion = editEmotionSpinner.selectedItem.toString()
-                }
+                var rating = editEmotionSpinner.selectedItemPosition-1
 
                 var summary = editSummaryView.text.toString()
                 var story = editStoryView.text.toString()
 
-                val data = arrayOf(emotion, summary, story)
+                val data = arrayOf(emotion, rating.toString(), summary, story)
 
                 replyIntent.putExtra(EXTRA_REPLY, data)
                 setResult(Activity.RESULT_OK, replyIntent)
@@ -60,6 +54,6 @@ class NewWordActivity : AppCompatActivity() {
     }
 
     companion object {
-        const val EXTRA_REPLY = "com.example.android.wordlistsql.REPLY"
+        const val EXTRA_REPLY = "com.example.android.caselistsql.REPLY"
     }
 }
