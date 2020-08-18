@@ -1,6 +1,7 @@
 package com.example.selfevident.casedatabase
 
 import android.app.Application
+import androidx.annotation.WorkerThread
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
@@ -34,11 +35,36 @@ class CaseViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(aCase)
     }
 
-    suspend fun getAll(): List<Case>{
-        return repository.getAll()
+    /**
+     * Launching a new coroutine to insert the data in a non-blocking way
+     */
+    fun insert(pattern: Pattern) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(pattern)
+    }
+    /**
+     * Launching a new coroutine to insert the data in a non-blocking way
+     */
+    fun insert(cross: Cross) = viewModelScope.launch(Dispatchers.IO) {
+        repository.insert(cross)
     }
 
-    suspend fun get(id: Int): List<Case>{
-        return repository.get(id)
+    suspend fun getAllCases(): List<Case>{
+        return repository.getAllCases()
+    }
+
+    suspend fun getCaseById(id: Int): List<Case>{
+        return repository.getCaseById(id)
+    }
+
+    suspend fun getPatternById(id: String): List<Pattern>{
+        return repository.getPatternById(id)
+    }
+
+    suspend fun getPatternsByCase(cid: Int): List<Pattern>{
+        return repository.getPatternsByCase(cid)
+    }
+
+    suspend fun getAllPatterns(): List<Pattern> {
+        return repository.getAllPatterns()
     }
 }

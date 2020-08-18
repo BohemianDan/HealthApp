@@ -1,4 +1,4 @@
-package com.example.selfevident.patterndatabase
+package com.example.selfevident.casedatabase
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,6 +10,5 @@ import java.sql.Date
 @Entity(tableName = "pattern_table")
 @TypeConverters(Converters::class)
 data class Pattern(
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "relationship") val relationship: String
+    @PrimaryKey @ColumnInfo(name = "id") val relationship: String
 )

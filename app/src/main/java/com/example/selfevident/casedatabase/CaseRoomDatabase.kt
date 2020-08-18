@@ -13,7 +13,7 @@ import kotlinx.coroutines.launch
  * This is the backend. The database. This used to be done by the OpenHelper.
  * The fact that this has very few comments emphasizes its coolness.
  */
-@Database(entities = [Case::class], version = 1)
+@Database(entities = [Case::class, Pattern::class, Cross::class], version = 1)
 abstract class CaseRoomDatabase : RoomDatabase() {
 
     abstract fun wordDao(): CaseDao

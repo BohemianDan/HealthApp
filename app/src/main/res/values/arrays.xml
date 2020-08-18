@@ -16,4 +16,7 @@
         <item>10: Ecstatic</item>
 
     </array>
+    <array name="default_array">
+        <item>Please Wait for Data to Load</item>
+    </array>
 </resources>

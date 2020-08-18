@@ -1,4 +1,4 @@
-package com.example.selfevident.patterndatabase
+package com.example.selfevident.casedatabase
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
@@ -10,5 +10,5 @@ import com.example.selfevident.Converters
 @TypeConverters(Converters::class)
 data class Cross(
     @ColumnInfo(name = "cid") val cid: Int,
-    @ColumnInfo(name = "pid") val pid: Int
+    @ColumnInfo(name = "pid") val pid: String
 )

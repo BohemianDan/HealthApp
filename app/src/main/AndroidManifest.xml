@@ -9,10 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.example.selfevident.ViewActivity" />
-        <activity android:name="com.example.selfevident.SearchActivity" />
-        <activity android:name="com.example.selfevident.NewCaseActivity" />
-        <activity android:name="com.example.selfevident.MainActivity">
+        <activity android:name=".ViewActivity" />
+        <activity android:name=".NewCaseActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

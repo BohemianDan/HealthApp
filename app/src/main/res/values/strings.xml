@@ -6,8 +6,8 @@
     <string name="hint_story">Complete Summary of What Happened…</string>
     <string name="button_save">Save</string>
     <string name="empty_not_saved">0–10 Rating and Quick Summary Required to Save</string>
-    <string name="add_word">Add word</string>
-    <string name="button_pattern">Add to Pattern</string>
+    <string name="add_pattern">Create a New Tag</string>
+    <string name="button_pattern">Add Tag</string>
     <string name="default_text">Loading…</string>
     <string name="null_default">None</string>
     <string name="view_title">Feeling:</string>
@@ -15,4 +15,11 @@
     <string name="view_pattern">Patterns:</string>
     <string name="view_story">Full Story:</string>
     <string name="view_rating">Rating:</string>
+    <string name="hint_pattern">Describe the pattern you\'ve observed…</string>
+    <string name="or">OR</string>
+    <string name="andor">AND/OR</string>
+    <string name="add_case">Add New Event</string>
+    <string name="add_tag">Add Tag To Event</string>
+    <string name="cancel">Cancel</string>
+
 </resources>
