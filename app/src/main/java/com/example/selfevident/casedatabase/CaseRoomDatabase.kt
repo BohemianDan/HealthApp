@@ -78,7 +78,7 @@ abstract class CaseRoomDatabase : RoomDatabase() {
             // Start the app with a clean database every time.
             // Not needed if you only populate on creation.
             //TODO: Delete
-            //wordDao.deleteAll()
+            //wordDao.deleteAllCases()
 
             //var word = Case(0,"Happy", "this Works","I hope this works")
             // wordDao.insert(word)

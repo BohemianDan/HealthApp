@@ -1,7 +1,6 @@
 package com.example.selfevident.casedatabase
 
 import androidx.room.*
-import com.example.selfevident.Converters
 import java.sql.Date
 
 /**

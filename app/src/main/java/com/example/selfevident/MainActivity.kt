@@ -3,6 +3,8 @@ package com.example.selfevident
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -10,6 +12,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.selfevident.casedatabase.*
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.sql.Date
 
 class MainActivity : AppCompatActivity() {
@@ -22,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
+        val emptyView = findViewById<TextView>(R.id.emptyView)
+        emptyView.text = ""
+
 
         val adapter = CaseListAdapter(this, this::viewEvent)
         recyclerView.adapter = adapter
@@ -33,10 +41,31 @@ class MainActivity : AppCompatActivity() {
             words?.let { adapter.setWords(it) }
         })
 
+        val flag = false
+        val empty = false
+
+        //may break if wrong thread??
+        GlobalScope.launch {
+            if (caseViewModel.getAllCases().isNullOrEmpty()){
+                emptyView.text = resources.getString(R.string.empty_db)
+            }
+        }
+
+
         val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity, NewCaseActivity::class.java)
             startActivityForResult(intent, newWordActivityRequestCode)
+        }
+
+
+
+        val tagBtn = findViewById<Button>(R.id.tagsIntentButton)
+
+        tagBtn.setOnClickListener {
+
+            var tagIntent = Intent(this@MainActivity, TagActivity::class.java)
+            startActivity(tagIntent)
         }
 
     }
@@ -57,6 +86,7 @@ class MainActivity : AppCompatActivity() {
                 val aCase = Case(0, it[0], it[1].toInt(), it[2], it[3], today)
                 caseViewModel.insert(aCase)
             }
+            emptyView.text=""
         } else {
             Toast.makeText(
                 applicationContext,

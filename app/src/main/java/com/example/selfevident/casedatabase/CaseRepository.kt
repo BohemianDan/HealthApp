@@ -2,9 +2,6 @@ package com.example.selfevident.casedatabase
 
 import androidx.annotation.WorkerThread
 import androidx.lifecycle.LiveData
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
 
 /**
  * Abstracted Repository as promoted by the Architecture Guide.
@@ -31,7 +28,7 @@ class CaseRepository(private val caseDao: CaseDao) {
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun getCaseById(id: Int): List<Case>{
+    suspend fun getCaseById(id: Int): List<Case> {
         return caseDao.getCaseById(id)
     }
 
@@ -73,6 +70,24 @@ class CaseRepository(private val caseDao: CaseDao) {
     @WorkerThread
     suspend fun insert(cross: Cross) {
         return caseDao.insert(cross)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun updatePattern(old: String, new: String) {
+        return caseDao.updatePattern(old, new)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun delete(cross: Cross) {
+        return caseDao.deleteCross(cross)
+    }
+
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    suspend fun delete(pattern: Pattern) {
+        return caseDao.deletePattern(pattern)
     }
 
 

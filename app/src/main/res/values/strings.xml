@@ -12,7 +12,7 @@
     <string name="null_default">None</string>
     <string name="view_title">Feeling:</string>
     <string name="view_summary">Summary:</string>
-    <string name="view_pattern">Patterns:</string>
+    <string name="view_pattern">Tags:</string>
     <string name="view_story">Full Story:</string>
     <string name="view_rating">Rating:</string>
     <string name="hint_pattern">Describe the pattern you\'ve observed…</string>
@@ -21,5 +21,13 @@
     <string name="add_case">Add New Event</string>
     <string name="add_tag">Add Tag To Event</string>
     <string name="cancel">Cancel</string>
+    <string name="empty_db">No entries yet! Add a new case with the button below!</string>
+    <string name="removePattern">Remove Tag</string>
+    <string name="delete_pattern">Delete Tag</string>
+    <string name="edit_tag">Edit Tag</string>
+    <string name="hint_edit_tag">Change Tag Name…</string>
+    <string name="no_tag_selected">You Must Select a Tag First</string>
+    <string name="tag_intent_button">Manage Tags</string>
+
 
 </resources>

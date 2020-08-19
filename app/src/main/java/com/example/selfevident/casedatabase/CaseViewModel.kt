@@ -16,6 +16,7 @@ import kotlinx.coroutines.launch
 class CaseViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository: CaseRepository
+
     // Using LiveData and caching what getAlphabetizedWords returns has several benefits:
     // - We can put an observer on the data (instead of polling for changes) and only update the
     //   the UI when the data actually changes.
@@ -41,6 +42,7 @@ class CaseViewModel(application: Application) : AndroidViewModel(application) {
     fun insert(pattern: Pattern) = viewModelScope.launch(Dispatchers.IO) {
         repository.insert(pattern)
     }
+
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
@@ -48,19 +50,39 @@ class CaseViewModel(application: Application) : AndroidViewModel(application) {
         repository.insert(cross)
     }
 
-    suspend fun getAllCases(): List<Case>{
+
+    /**
+     * Launching a new coroutine to insert the data in a non-blocking way
+     */
+    fun delete(pattern: Pattern) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(pattern)
+    }
+
+    /**
+     * Launching a new coroutine to insert the data in a non-blocking way
+     */
+    fun delete(cross: Cross) = viewModelScope.launch(Dispatchers.IO) {
+        repository.delete(cross)
+    }
+
+    fun updatePattern(old: String, new: String) = viewModelScope.launch(Dispatchers.IO) {
+        repository.updatePattern(old, new)
+    }
+
+    suspend fun getAllCases(): List<Case> {
         return repository.getAllCases()
     }
 
-    suspend fun getCaseById(id: Int): List<Case>{
+    suspend fun getCaseById(id: Int): List<Case> {
         return repository.getCaseById(id)
     }
 
-    suspend fun getPatternById(id: String): List<Pattern>{
+
+    suspend fun getPatternById(id: String): List<Pattern> {
         return repository.getPatternById(id)
     }
 
-    suspend fun getPatternsByCase(cid: Int): List<Pattern>{
+    suspend fun getPatternsByCase(cid: Int): List<Pattern> {
         return repository.getPatternsByCase(cid)
     }
 

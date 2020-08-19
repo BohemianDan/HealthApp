@@ -1,4 +1,4 @@
-package com.example.selfevident
+package com.example.selfevident.casedatabase
 
 import androidx.room.TypeConverter
 import java.sql.Date

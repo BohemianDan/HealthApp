@@ -35,7 +35,7 @@ interface CaseDao {
     fun insert(aCase: Case)
 
     @Query("DELETE FROM case_table")
-    fun deleteAll()
+    fun deleteAllCases()
 
     //Pattern and Cross:
     @Query("SELECT * from pattern_table p inner join cross_table c ON p.id = c.pid WHERE cid = :cid ORDER BY id ASC")
@@ -52,6 +52,9 @@ interface CaseDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(cross: Cross)
+
+    @Query("UPDATE pattern_table SET id = :new WHERE id = :old")
+    fun updatePattern(old: String, new: String)
 
     @Delete
     fun deletePattern(pattern: Pattern)
