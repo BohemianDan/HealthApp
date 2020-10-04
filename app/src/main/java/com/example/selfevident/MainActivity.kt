@@ -15,7 +15,7 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import java.sql.Date
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
 
@@ -82,9 +82,6 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newWordActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.getStringArrayExtra(NewCaseActivity.EXTRA_REPLY)?.let {
-                val today = Date(System.currentTimeMillis())
-                val aCase = Case(0, it[0], it[1].toInt(), it[2], it[3], today)
-                caseViewModel.insert(aCase)
             }
             emptyView.text=""
         } else {

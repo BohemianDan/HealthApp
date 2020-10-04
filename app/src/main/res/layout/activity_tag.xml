@@ -4,7 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TagActivity">
+    tools:context=".TagActivity"
+    android:layout_marginTop="@dimen/big_padding"
+    android:layout_marginBottom="@dimen/big_padding"
+
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,6 +27,21 @@
             android:layout_margin="@dimen/big_padding"
             android:layout_marginTop="8dp"
             android:entries="@array/default_array" />
+
+        <TextView
+            android:id="@+id/tagStatView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#000000"
+            />
+
+        <com.jjoe64.graphview.GraphView
+            android:id="@+id/tagGraph"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight=".1"
+            />
 
         <Button
             android:id="@+id/deleteTagButton"
@@ -52,6 +71,7 @@
                 android:layout_marginEnd="10dp"
                 android:textSize="18sp"
                 android:importantForAutofill="no" />
+
             <Button
                 android:id="@+id/editTagButton"
                 android:layout_weight=".7"

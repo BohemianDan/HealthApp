@@ -1,7 +1,7 @@
 package com.example.selfevident.casedatabase
 
 import androidx.room.*
-import java.sql.Date
+import java.util.Date
 
 /**
  * A basic class representing an entity that is a row in a one-column database table.

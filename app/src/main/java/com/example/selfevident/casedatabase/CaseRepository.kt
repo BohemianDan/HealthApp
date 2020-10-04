@@ -21,8 +21,8 @@ class CaseRepository(private val caseDao: CaseDao) {
     //Cases:
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
-    suspend fun insert(aCase: Case) {
-        caseDao.insert(aCase)
+    suspend fun insert(aCase: Case): Long {
+        return caseDao.insert(aCase)
     }
 
 
@@ -62,33 +62,38 @@ class CaseRepository(private val caseDao: CaseDao) {
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(pattern: Pattern) {
-        return caseDao.insert(pattern)
+        caseDao.insert(pattern)
     }
 
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun insert(cross: Cross) {
-        return caseDao.insert(cross)
+        caseDao.insert(cross)
     }
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun updatePattern(old: String, new: String) {
-        return caseDao.updatePattern(old, new)
+        caseDao.updatePattern(old, new)
     }
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun delete(cross: Cross) {
-        return caseDao.deleteCross(cross)
+        caseDao.deleteCross(cross)
     }
 
     @Suppress("RedundantSuspendModifier")
     @WorkerThread
     suspend fun delete(pattern: Pattern) {
-        return caseDao.deletePattern(pattern)
+        caseDao.deletePattern(pattern)
     }
 
+    @Suppress("RedundantSuspendModifier")
+    @WorkerThread
+    fun getCrossesByPattern(pid: String): List<Cross>{
+        return caseDao.getCrossesByPattern(pid)
 
+    }
 }

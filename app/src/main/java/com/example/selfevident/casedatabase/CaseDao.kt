@@ -32,7 +32,7 @@ interface CaseDao {
     fun getCaseById(id: Int): List<Case>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun insert(aCase: Case)
+    fun insert(aCase: Case) : Long
 
     @Query("DELETE FROM case_table")
     fun deleteAllCases()
@@ -46,6 +46,9 @@ interface CaseDao {
 
     @Query("SELECT * from pattern_table ORDER BY id ASC")
     fun getAllPatterns(): List<Pattern>
+
+    @Query("SELECT * from cross_table WHERE pid =:pid ORDER BY cid ASC")
+    fun getCrossesByPattern(pid: String): List<Cross>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(pattern: Pattern)

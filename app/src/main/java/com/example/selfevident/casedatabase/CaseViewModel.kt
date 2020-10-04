@@ -32,8 +32,8 @@ class CaseViewModel(application: Application) : AndroidViewModel(application) {
     /**
      * Launching a new coroutine to insert the data in a non-blocking way
      */
-    fun insert(aCase: Case) = viewModelScope.launch(Dispatchers.IO) {
-        repository.insert(aCase)
+    suspend fun insert(aCase: Case): Long {
+        return repository.insert(aCase)
     }
 
     /**
@@ -88,5 +88,9 @@ class CaseViewModel(application: Application) : AndroidViewModel(application) {
 
     suspend fun getAllPatterns(): List<Pattern> {
         return repository.getAllPatterns()
+    }
+
+    fun getCrossesByPattern(pid: String): List<Cross>{
+        return repository.getCrossesByPattern(pid)
     }
 }

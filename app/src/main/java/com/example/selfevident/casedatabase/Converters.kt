@@ -1,7 +1,7 @@
 package com.example.selfevident.casedatabase
 
 import androidx.room.TypeConverter
-import java.sql.Date
+import java.util.Date
 
 
 object Converters {

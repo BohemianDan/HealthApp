@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
 
     <Spinner
         android:layout_width="match_parent"
@@ -22,10 +24,12 @@
         android:inputType="textAutoComplete"
         android:gravity="top"
         android:background="@drawable/back"
+        android:scrollbars="vertical"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:layout_margin="@dimen/big_padding"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/edit_summary"
@@ -37,12 +41,14 @@
         android:inputType="textMultiLine"
         android:lines="3"
         android:minLines="2"
-        android:gravity = "top"
+        android:scrollbars="vertical"
+        android:gravity="top"
         android:background="@drawable/back"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:layout_margin="@dimen/big_padding"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:importantForAutofill="no" />
 
     <EditText
         android:id="@+id/edit_story"
@@ -54,12 +60,89 @@
         android:inputType="textMultiLine"
         android:lines="8"
         android:minLines="5"
-        android:gravity = "top"
+        android:scrollbars="vertical"
+        android:gravity="top"
         android:background="@drawable/back"
         android:paddingStart="10dp"
         android:paddingEnd="10dp"
         android:minHeight="@dimen/min_height"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/pattern_static2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="@dimen/small_padding"
+        android:layout_marginEnd="16dp"
+        android:text="@string/view_pattern"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/storyView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/big_padding">
+
+        <TextView
+            android:id="@+id/patternViewNewCase"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:background="@drawable/back"
+            android:maxLines="4"
+            android:minLines="2"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:scrollbars="vertical"
+            android:text="@string/null_default"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pattern_static" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/addPatternButtonNewCase"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@color/colorAccent"
+                android:text="@string/button_pattern"
+                android:textColor="@color/buttonLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/patternView" />
+
+            <Button
+                android:id="@+id/removePatternButtonNewCase"
+                android:layout_width="0dp"
+                android:layout_weight="0.5"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@color/colorPrimary"
+                android:text="@string/removePattern"
+                android:textColor="@color/buttonLabel"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addPatternButton" />
+        </LinearLayout>
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/button_save"

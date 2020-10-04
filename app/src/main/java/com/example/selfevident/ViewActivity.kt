@@ -115,8 +115,15 @@ class ViewActivity : AppCompatActivity() {
                     }
 
                     dialog.dismiss()
-                    finish()
-                    startActivity(intent)
+                    GlobalScope.launch{
+                        val patterns = caseViewModel.getPatternsByCase(cid = caseId)
+                        var str = ""
+                        for(pattern in patterns){
+                            str += pattern.relationship + ", "
+                        }
+                        str = str.slice(0 until str.length-2)
+                        patternView.text = str
+                    }
                 }
                 noBtn.setOnClickListener { dialog.dismiss() }
                 dialog.show()
@@ -129,7 +136,7 @@ class ViewActivity : AppCompatActivity() {
                 dialog.requestWindowFeature(Window.FEATURE_NO_TITLE)
                 dialog.setCancelable(false)
                 dialog.setContentView(R.layout.remove_dialog)
-                val tagSpinner = dialog.findViewById<Spinner>(R.id.removeTagBtn)
+                val tagSpinner = dialog.findViewById<Spinner>(R.id.removeTagSpinner)
                 val yesBtn = dialog.findViewById(R.id.removeTagBtn) as Button
                 val noBtn = dialog.findViewById(R.id.noRemoveBtn) as TextView
 
@@ -157,10 +164,16 @@ class ViewActivity : AppCompatActivity() {
                         val cross = Cross(cid = caseId, pid = newPattern.relationship)
                         caseViewModel.delete(cross)
                     }
-
                     dialog.dismiss()
-                    finish()
-                    startActivity(intent)
+                    GlobalScope.launch{
+                        val patterns = caseViewModel.getPatternsByCase(cid = caseId)
+                        var str = ""
+                        for(pattern in patterns){
+                            str += pattern.relationship + ", "
+                        }
+                        str = str.slice(0 until str.length-2)
+                        patternView.text = str
+                    }
                 }
                 noBtn.setOnClickListener { dialog.dismiss() }
                 dialog.show()
